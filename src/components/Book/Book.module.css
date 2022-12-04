@@ -1,0 +1,89 @@
+.book {
+    width: 200px;
+    max-height: 400px;
+}
+
+.image {
+    position: relative;
+    height: 70%;
+    width: 100%;
+    margin-bottom: 5px;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.image img {
+    max-width: 100%;
+}
+
+.options {
+    position: absolute;
+    z-index: 999;
+    top: 85%;
+    left: 85%;
+}
+
+.button {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    background-color: rgb(70, 185, 70);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.button::after {
+    position: absolute;
+    content: "";
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 7px solid white;
+}
+
+.menu {
+    display:none;
+    position: relative;
+    z-index: 999;
+    background-color: #ddd;
+    width: 200px;
+    border-radius: 10px;
+    padding: 5px 0;
+}
+
+.menu ul {
+    list-style: none;
+}
+
+.menu ul li{
+    cursor: pointer;
+}
+.menu ul li:hover {
+    background-color: #0099CC;
+    color: white;
+}
+
+.menu ul li span {
+    display: inline-block;
+    margin: 0 8px;
+    visibility: hidden;
+}
+
+
+
+.theFooter h3 {
+    text-transform: capitalize;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.theFooter p {
+    opacity: 0.8;
+    text-transform: capitalize;
+    font-size: 16px;
+
+}
+
