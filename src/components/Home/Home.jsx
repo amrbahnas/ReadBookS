@@ -1,18 +1,26 @@
-import React from 'react'
+import {useEffect} from 'react'
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from 'react-redux';
+import {fetchAllBooks} from '../../store/booksSlice'
 import styles from './Home.module.css'
-import Header from "../homeHeader/Header";
-import Section from '../homeSection/Section';
+import Header from "../header/Header";
+import Shelf from "../shelf/Shelf";
 
 const Home = () => {
   const navigate = useNavigate();
+  // const dispatch = useDispatch();
+
+  // useEffect(() => {
+  //   dispatch(fetchAllBooks());
+  // }, [dispatch]);
+
   return (
     <div className={styles.home}>
       <Header />
       <div className="container">
-        <Section title={"currently Reading"} sectionNum={1} />
-        <Section title={"want to Read"} sectionNum={2} />
-        <Section title={"Read"} sectionNum={3} />
+        <Shelf title={"currently Reading"} shelfNum={1} />
+        <Shelf title={"want to Read"} shelfNum={2} />
+        <Shelf title={"Read"} shelfNum={3} />
       </div>
       <div className={styles.add} onClick={() => navigate("books/srarch")}>
         +

@@ -1,8 +1,8 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import Book from "../Book/Book";
-import styles from "./Section.module.css";
-const Section = ({ title, sectionNum }) => {
+import styles from "./shelf.module.css";
+const Shelf = ({ title, shelfNum }) => {
   const { currentlyReading, wantToRead, read } = useSelector(
     (store) => store.books
   );
@@ -13,20 +13,14 @@ const Section = ({ title, sectionNum }) => {
     [3, read],
   ]);
 
-  const books = data.get(sectionNum);
+  const books = data.get(shelfNum);
 
   return (
     <article>
       <div className={styles.title}>{title}</div>
       <section>
         {books.length > 0 ? (
-          books.map((el) => (
-            <Book
-              sectionNum={sectionNum}
-              bookTitle={el}
-              key={el}
-            />
-          ))
+          books.map((el) => <Book info={el} shelfNum={shelfNum} key={el.id} />)
         ) : (
           <div>Empty Shelf</div>
         )}
@@ -35,4 +29,4 @@ const Section = ({ title, sectionNum }) => {
   );
 };
 
-export default Section;
+export default Shelf;
