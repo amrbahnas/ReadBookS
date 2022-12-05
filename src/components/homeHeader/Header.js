@@ -1,8 +1,8 @@
 import React from 'react'
-import './Header.module.css'
+import Styles from  './Header.module.css'
 const Header = () => {
   return (
-    <header>
+    <header className={Styles.homeHeader}>
       <h1>mYReads</h1>
     </header>
   );

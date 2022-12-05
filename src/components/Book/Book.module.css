@@ -66,12 +66,16 @@
     color: white;
 }
 
+.menu ul li.disable{
+    pointer-events: none;
+    color : #555;
+}
+
 .menu ul li span {
     display: inline-block;
     margin: 0 8px;
     visibility: hidden;
 }
-
 
 
 .theFooter h3 {

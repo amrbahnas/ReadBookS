@@ -59,3 +59,15 @@ body {
   padding-top: var(--section-padding-top);
   padding-bottom: var(--section-padding-bottom);
 }
+
+.show {
+  display: block !important;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.visiable{
+  visibility: visible !important;
+}

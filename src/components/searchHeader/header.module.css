@@ -1,0 +1,41 @@
+.searchHeader {
+    padding: 10px;
+    background-color: #eee;
+    box-shadow: 0px 6px 20px grey;
+}
+
+.searchHeader ul {
+    display: block;
+    list-style: none;
+    display: flex;
+}
+
+.searchHeader ul li:nth-child(1) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-basis: 5%;
+}
+
+.searchHeader ul li:nth-child(2) {
+    flex-basis: 95%;
+}
+
+.searchHeader ul i {
+    font-size: 40px;
+    cursor: pointer;
+    color: #666;
+}
+
+
+.searchHeader ul input {
+    width: 100%;
+    padding: 20px 10px;
+    border: none;
+    font-size: 30px;
+    background-color: #eee;
+}
+
+.searchHeader ul input:focus {
+    outline: none;
+}
