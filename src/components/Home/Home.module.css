@@ -18,3 +18,9 @@
     font-weight: bold;
     cursor: pointer;
 }
+
+@media (max-width: 768px) {
+.add {
+    left: 80%;
+}
+}

@@ -159,10 +159,10 @@ export const booksSlice = createSlice({
     ///////////////////////////ExtraReducers Update//////////////////////////////////////////
 
     [updateBook.pending]: (state) => {
-      state.loading = true;
+      // state.loading = true;
     },
     [updateBook.fulfilled]: (state, action) => {
-      state.loading = false;
+      // state.loading = false;
     },
     [updateBook.rejected]: (state, action) => {
       state.loading = false;
@@ -176,7 +176,7 @@ export const booksSlice = createSlice({
     [search.fulfilled]: (state, action) => {
       state.loading = false;
       if(action.payload.books.length > 0){
-      const data = action.payload.books.filter((el) => el.imageLinks.thumbnail.length > 0);
+      const data = action.payload.books.filter((el) => el.imageLinks);
             state.apiBooks = { books: data };
       };   
     },

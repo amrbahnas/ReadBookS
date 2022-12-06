@@ -55,6 +55,12 @@
     padding: 5px 0;
 }
 
+@media (max-width: 768px) {
+    .menu {
+        left:-82%
+    }
+}
+
 .menu ul {
     list-style: none;
 }

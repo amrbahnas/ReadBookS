@@ -11,6 +11,12 @@ article{
     text-transform: capitalize;
 }
 
+@media (max-width: 768px) {
+    .title {
+        text-align: center;
+    }
+}
+
 section{
     display: flex;
     align-items: center;

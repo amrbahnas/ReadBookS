@@ -37,7 +37,7 @@ const Search = () => {
       <Header searchValue={searchValue} />
       <section>
         {value === ""? (
-          <div>Start Search Now</div>
+          <div>Start Search</div>
         ) : books && books.length > 0 ? (
           books.map((el) => <Book info={el} shelfNum={4} key={el.id} />)
         ) : (<div>Not Found !</div>
