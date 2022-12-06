@@ -23,7 +23,7 @@ const Home = () => {
         <Shelf title={"want to Read"} shelfNum={2} />
         <Shelf title={"Read"} shelfNum={3} />
       </div>
-      <div className={styles.add} onClick={() => navigate("books/srarch")}>
+      <div className={styles.add} onClick={() => navigate("search")}>
         +
       </div>
     </div>

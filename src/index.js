@@ -20,7 +20,7 @@ const router = createBrowserRouter([
       },
       {
         element: <Search />,
-        path: "books/srarch",
+        path: "search",
       },
     ],
   },
