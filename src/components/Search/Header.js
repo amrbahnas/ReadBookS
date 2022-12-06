@@ -2,7 +2,7 @@ import React,{useState,memo} from 'react'
 import { useDispatch } from 'react-redux';
 import { useNavigate } from "react-router-dom";
 import {clear} from '../../store/booksSlice'
-import Styles from './header.module.css'
+import Styles from './Header.module.css'
 
 const Header = ({ searchValue }) => {
   const dispatch = useDispatch();

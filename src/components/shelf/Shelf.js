@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import Book from "../Book/Book";
-import styles from "./shelf.module.css";
+import styles from "./Shelf.module.css";
 const Shelf = ({ title, shelfNum }) => {
   const { currentlyReading, wantToRead, read,loading } = useSelector(
     (store) => store.books
