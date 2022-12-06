@@ -1,19 +1,20 @@
 import {useEffect} from 'react'
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from 'react-redux';
-import {fetchAllBooks} from '../../store/booksSlice'
+import { useDispatch} from 'react-redux';
+import { MyBooks } from "../../store/apiSlice";
 import styles from './Home.module.css'
-import Header from "../header/Header";
+import Header from "./Header";
 import Shelf from "../shelf/Shelf";
 
 const Home = () => {
   const navigate = useNavigate();
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   dispatch(fetchAllBooks());
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(MyBooks());
+  }, [dispatch]);
 
+  ////////////////////////////// DOM /////////////////////////////////////////////////
   return (
     <div className={styles.home}>
       <Header />
