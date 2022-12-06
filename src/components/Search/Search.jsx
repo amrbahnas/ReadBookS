@@ -11,7 +11,7 @@ const Search = () => {
   const { books } = useSelector((store) => store.books.apiBooks);
 
   //greate localState for carry search input
-  const [value, setValue] = useState([]);
+  const [value, setValue] = useState("");
 
   // Get search input from search-header component and set state(value)
   const searchValue = (value) => {
@@ -21,7 +21,7 @@ const Search = () => {
   //dispatch search Action
   useEffect(() => {
     const time = setTimeout(() => {
-      if (value.length > 0) {
+      if (value) {
         dispatch(search({ query: value.trim(), maxResults: 15 }));
       } else {
         dispatch(clear());
@@ -31,7 +31,6 @@ const Search = () => {
       clearTimeout(time);
     };
   }, [value, dispatch]);
-
   ////////////////////////////// DOM /////////////////////////////////////////////////
   return (
     <div>
