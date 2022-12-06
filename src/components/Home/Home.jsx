@@ -1,7 +1,7 @@
 import {useEffect} from 'react'
 import { useNavigate } from "react-router-dom";
 import { useDispatch} from 'react-redux';
-import { MyBooks } from "../../store/apiSlice";
+import { MyBooks } from "../../store/booksSlice";
 import styles from './Home.module.css'
 import Header from "./Header";
 import Shelf from "../shelf/Shelf";

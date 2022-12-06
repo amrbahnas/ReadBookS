@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Book from "../Book/Book";
-import { search, clear } from "../../store/apiSlice";
+import { search, clear } from "../../store/booksSlice";
 import { useSelector, useDispatch } from "react-redux";
 
 import Header from "./Header";
@@ -8,7 +8,7 @@ const Search = () => {
   const dispatch = useDispatch();
 
   //get global state
-  const { books } = useSelector((store) => store.apiSlice.apiBooks);
+  const { books } = useSelector((store) => store.books.apiBooks);
 
   //greate localState for carry search input
   const [value, setValue] = useState([]);
@@ -21,7 +21,7 @@ const Search = () => {
   //dispatch search Action
   useEffect(() => {
     const time = setTimeout(() => {
-      if (value) {
+      if (value.length > 0) {
         dispatch(search({ query: value.trim(), maxResults: 15 }));
       } else {
         dispatch(clear());
@@ -37,10 +37,11 @@ const Search = () => {
     <div>
       <Header searchValue={searchValue} />
       <section>
-        {books && books.length > 0 ? (
+        {value === ""? (
+          <div>Start Search Now</div>
+        ) : books && books.length > 0 ? (
           books.map((el) => <Book info={el} shelfNum={4} key={el.id} />)
-        ) : (
-          <div>Empty</div>
+        ) : (<div>Not Found !</div>
         )}
       </section>
     </div>

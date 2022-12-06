@@ -1,24 +1,30 @@
-import React,{useState} from 'react'
+import React,{useState,memo} from 'react'
+import { useDispatch } from 'react-redux';
 import { useNavigate } from "react-router-dom";
-
+import {clear} from '../../store/booksSlice'
 import Styles from './header.module.css'
+
 const Header = ({ searchValue }) => {
-
+  const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [value,SetValue] =useState("");
 
-  const changeHandler =(input)=>{
+  // onclick back button
+  const backHandler = () => {
+    navigate("/");
+    dispatch(clear());
+  };
+
+  const [value, SetValue] = useState("");
+  const changeHandler = (input) => {
     SetValue(input);
     searchValue(input);
-  }
+  };
+  ////////////////////////////// DOM /////////////////////////////////////////////////
   return (
     <header className={Styles.searchHeader}>
       <ul>
         <li>
-          <i
-            className="fa-solid fa-angles-left"
-            onClick={() => navigate("/")}
-          ></i>
+          <i className="fa-solid fa-angles-left" onClick={backHandler}></i>
         </li>
         <li>
           <input
@@ -34,4 +40,4 @@ const Header = ({ searchValue }) => {
   );
 };
 
-export default Header
+export default memo(Header)

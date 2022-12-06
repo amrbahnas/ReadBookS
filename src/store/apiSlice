@@ -17,14 +17,14 @@ export const MyBooks = createAsyncThunk(
   "api/fetchMyBooks",
   async (_, thunkAPI) => {
     const { rejectedWithValue, getState } = thunkAPI;
-    const { currentlyReading } = getState().books;
+    const  booksSlice = getState().books;
     try {
       const res = await fetch(`${api}/books`, {
         method: "GET",
         headers,
       });
       const data = await res.json();
-      return { data, currentlyReading };
+      return { data, booksSlice };
     } catch (error) {
       return rejectedWithValue(error);
     }
@@ -71,8 +71,9 @@ export const apiSlice = createSlice({
     },
     [MyBooks.fulfilled]: (state, action) => {
       state.loading = false;
-      state.myBooks = action.payload;
+     const myBooks = action.payload;   
     },
+
     [MyBooks.rejected]: (state, action) => {
       state.loading = false;
       console.log("field");

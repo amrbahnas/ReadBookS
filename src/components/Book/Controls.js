@@ -1,53 +1,63 @@
 import React, { useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { changeShelf, addBook } from "../../store/booksSlice";
+import { changeShelf, insertBook, updateBook} from "../../store/booksSlice";
 import styles from "./Book.module.css";
 
 const Controls = ({ shelfNum, info }) => {
-
- /************variables************** */
+  /************variables************** */
   const dispath = useDispatch();
   const buttom = useRef();
   const menu = useRef();
   const { currentlyReading, wantToRead, read } = useSelector(
     (store) => store.books
   );
-  const fromShelf = new Map([
-    [1, "currentlyReading"],
-    [2, "wantToRead"],
-    [3, "read"],
-    [4, "search"],
-  ]).get(shelfNum);
 
- /************Functions************** */
- 
- //open cloase menu
+   let currentShelf ="search";
+   
+  /************Functions************** */
+
+  // open Or close Menu
   const menuHandler = () => {
     menu.current.classList.toggle("show");
     buttom.current.classList.toggle("hidden");
   };
 
-// insert book to X shelf
+  // insert book to X shelf
   const toShelfHandler = (data) => {
-    if (shelfNum < 4) {
+    if (currentShelf !=="search") {
       dispath(changeShelf(data));
+      const { info, toShelf } = data;
+      dispath(updateBook({ id: info.id, shelf: toShelf }));
     } else {
-      dispath(addBook(data));
+      dispath(insertBook(data));
+      dispath(changeShelf(data));
     }
     menuHandler();
   };
 
-  // when right sign show
-  const handlerRightSign = (sectionInfo) => {
-    const { num, globalState } = sectionInfo;
-    if (shelfNum === num || globalState.find((book) => book.id === info.id)) {
-      
+  //right sign at None
+  let noOne = true;
+  const none = () => {
+    if (noOne) {
       return <span className="visiable">✔</span>;
     } else {
       return <span>✔</span>;
     }
   };
 
+  //right sign at Current Shelf
+  const handlerRightSign = (sectionInfo) => {
+    const { globalState, myShelf } = sectionInfo;
+    if (globalState.find((book) => book.id === info.id)) {
+      noOne = false;
+      currentShelf = myShelf;
+      return <span className="visiable">✔</span>;
+    } else {
+      return <span>✔</span>;
+    }
+  };
+
+  ////////////////////////////// DOM /////////////////////////////////////////////////
   return (
     <div className={styles.options}>
       <div className={styles.button} ref={buttom} onClick={menuHandler}></div>
@@ -55,46 +65,52 @@ const Controls = ({ shelfNum, info }) => {
         <ul>
           <li className={styles.disable}>
             <span>✔</span>
-            {shelfNum < 4 ? "Move to..." : "Add to ..."}
+            {shelfNum === 4 ? "Add to ..." : "Move to..."}
           </li>
           <li
             onClick={() =>
               toShelfHandler({
-                fromShelf,
+                currentShelf,
                 toShelf: "currentlyReading",
                 info,
               })
             }
           >
-            {handlerRightSign({ num: 1, globalState: currentlyReading })}
+            {handlerRightSign({
+              globalState: currentlyReading,
+              myShelf: "currentlyReading",
+            })}
             currently Reading
           </li>
           <li
             onClick={() =>
               toShelfHandler({
-                fromShelf,
+                currentShelf,
                 toShelf: "wantToRead",
                 info,
               })
             }
           >
-            {handlerRightSign({ num: 2, globalState: wantToRead })}
+            {handlerRightSign({
+              globalState: wantToRead,
+              myShelf: "wantToRead",
+            })}
             Want toRead
           </li>
           <li
             onClick={() =>
               toShelfHandler({
-                fromShelf,
+                currentShelf,
                 toShelf: "read",
                 info,
               })
             }
           >
-            {handlerRightSign({ num: 3, globalState: read })}
+            {handlerRightSign({ globalState: read, myShelf: "read" })}
             Read
           </li>
           <li onClick={menuHandler}>
-            {handlerRightSign({ num: 4, globalState: [] })}
+            {none()}
             None
           </li>
         </ul>
@@ -103,4 +119,4 @@ const Controls = ({ shelfNum, info }) => {
   );
 };
 
-export default Controls;
+export default React.memo(Controls);
