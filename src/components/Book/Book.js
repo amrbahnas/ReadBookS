@@ -23,7 +23,7 @@ const Book = ({ shelfNum, info }) => {
 };
 
 Book.propTypes = {
-  shelfNum: propTypes.number.isRequired,
+  shelfNum: propTypes.number,
   info: propTypes.object.isRequired
 };
 
