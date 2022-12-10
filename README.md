@@ -32,7 +32,8 @@ To get started developing right away:
     │   │   └── home.js # component for contain all shelfs
     │   ├── Search-folder # 
     │   │   ├──header.js #implementation input text for search
-    │   │   └──search.js #implementation search output
+    │   │   ├──search.js #implementation search output
+    │   │   └──useDebounce.js # optimizing the search and implementing Debounce 
     │   └── Shelf-folder # 
     │        └──shelf.js #implementation shelf section which contain title and books
     ├── store-folder # Global store
@@ -46,10 +47,10 @@ Remember that good React design practice is to create new JS files for each comp
 ## Backend Server
 
 To simplify your development process, we've provided a backend server for you to develop against. The provided file [`booksSlice.js`](store/booksSlice.js) contains the methods you will need to perform necessary operations on the backend:
-
-- [`getAll`](#MyBooks)
-- [`addBook`](#insertBook)
-- [`update`](#updateBook)
+MyBooks
+- [`MyBooks`](#getAll)
+- [`insertBook`](#addbook)
+- [`updateBook`](#update)
 - [`search`](#search)
 
 ### `getAll`
@@ -68,7 +69,7 @@ dispatch(MyBooks());
 Method Signature:
 
 ```js
-updateBook(book, shelf);
+dispatch(updateBook(book, shelf));
 ```
 
 - book: `<Object>` containing at minimum an `id` attribute
@@ -80,7 +81,7 @@ updateBook(book, shelf);
 Method Signature:
 
 ```js
-search(query);
+dispatch(search(query));
 ```
 
 - query: `<String>`
