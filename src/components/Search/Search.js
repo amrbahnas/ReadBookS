@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect} from "react";
 import Book from "../Book/Book";
 import { search, clear } from "../../store/booksSlice";
 import { useSelector, useDispatch } from "react-redux";
+import useDebounce from "./useDebounce";
 
 import Header from "./Header";
 const Search = () => {
@@ -18,29 +19,29 @@ const Search = () => {
     setValue(value);
   };
 
-  //dispatch search Action
+  //dispatch search Action using useDebounce
+  const debouncedValue = useDebounce(value, 500);
   useEffect(() => {
-    const time = setTimeout(() => {
-      if (value) {
-        dispatch(search({ query: value.trim(), maxResults: 15 }));
-      } else {
-        dispatch(clear());
-      }
-    }, 500);
-    return () => {
-      clearTimeout(time);
-    };
-  }, [value, dispatch]);
+    if (debouncedValue) {
+      // fetch 
+      dispatch(search({ query: debouncedValue.trim(), maxResults: 15 }));
+    } else {
+      //clean current search results
+      dispatch(clear());
+    }
+  }, [debouncedValue, dispatch]);
+
   ////////////////////////////// DOM /////////////////////////////////////////////////
   return (
     <div>
       <Header searchValue={searchValue} />
       <section>
-        {value === ""? (
+        {value === "" ? (
           <div>Start Search</div>
         ) : books && books.length > 0 ? (
           books.map((el) => <Book info={el} shelfNum={4} key={el.id} />)
-        ) : (<div>Not Found !</div>
+        ) : (
+          <div>Not Found !</div>
         )}
       </section>
     </div>

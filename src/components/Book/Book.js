@@ -1,6 +1,6 @@
 import Controls from "./Controls";
 import styles from "./Book.module.css";
-
+import propTypes from 'prop-types'
 const Book = ({ shelfNum, info }) => {
   //book info
   const { title, authors, imageLinks } = info;
@@ -20,6 +20,11 @@ const Book = ({ shelfNum, info }) => {
       </div>
     </div>
   );
+};
+
+Book.propTypes = {
+  shelfNum: propTypes.number.isRequired,
+  info: propTypes.object.isRequired
 };
 
 export default Book;

@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { changeShelf, insertBook, updateBook} from "../../store/booksSlice";
+import propTypes from 'prop-types'
 import styles from "./Book.module.css";
 
 const Controls = ({ shelfNum, info }) => {
@@ -117,6 +118,11 @@ const Controls = ({ shelfNum, info }) => {
       </div>
     </div>
   );
+};
+
+Controls.propTypes = {
+  shelfNum: propTypes.number,
+  info: propTypes.object,
 };
 
 export default React.memo(Controls);

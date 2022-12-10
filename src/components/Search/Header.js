@@ -1,6 +1,7 @@
 import React,{useState,memo} from 'react'
 import { useDispatch } from 'react-redux';
 import { useNavigate } from "react-router-dom";
+import propTypes from "prop-types";
 import {clear} from '../../store/booksSlice'
 import Styles from './Header.module.css'
 
@@ -39,5 +40,7 @@ const Header = ({ searchValue }) => {
     </header>
   );
 };
-
+Header.propTypes = {
+  searchValue: propTypes.any
+};
 export default memo(Header)
