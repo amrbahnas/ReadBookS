@@ -2,9 +2,65 @@
 
 This is the starter template for the final assessment project for Udacity's React Fundamentals course. The goal of this template is to save you time by providing a static example of the CSS and HTML markup that may be used, but without any of the React code that is needed to complete the project. If you choose to start with this template, your job will be to add interactivity to the app by refactoring the static code in this template.
 
-Of course, you are free to start this project from scratch if you wish! Just be sure to use [Create React App](https://reactjs.org/docs/create-a-new-react-app.html) to bootstrap the project.
 
-## TL;DR
+
+# Project featuers
+
+- The app will allow users to:
+- view thier Books in one page
+- Classification of books into three categories
+- Add new Books From search page
+
+
+##  Project breakdown:
+
+- App has three shelves for books (currentRead-WantToRead-Read) at the home page
+- The main page shows a control that allows users to move books between shelves
+- When the browser is refreshed, the same information is displayed on the page
+- Have search page We can add New book to our Shelves
+- books that match the query are displayed on the page
+- user can search by book titles and authors also
+- Search results are not shown when all of the text is deleted out of the search input box
+- Invalid queries are handled and prior search results are not shown.
+- The search works correctly when a book does not have a thumbnail or an author
+- on the search page allow the user to select “Currently Reading”, “Want to Read”, or “Read” to place the book in a certain shelf
+- When an item is categorized on the search page and the user navigates to the main page
+
+# Installation:
+First for Download project files into your Pc write this command 
+1-
+```sh
+ git clone https://github.com/amrbahnas/ReadBooks.git
+```
+2- for  enter project path
+```
+$ cd /readBooks
+```
+3- for download All package directory i Uses in Project
+```
+$ npm install
+```
+
+# Usage
+
+Use the following command to run the browser:
+```
+$ npm start
+```
+The project can be viewed in the browser at:
+``
+http://localhost:3000
+``
+
+# Screenshots of the project running
+<img width="1039" alt="Screen Shot 2022-05-02 at 1 51 14 AM" src="https://user-images.githubusercontent.com/73616484/206880888-38ef5eb2-7f7b-426c-ac10-d16b9755eb0d.png">
+
+<img width="1045" alt="Screen Shot 2022-05-02 at 1 50 51 AM" src="https://user-images.githubusercontent.com/73616484/206880919-f992c760-7b40-4697-98c2-89522d8317b8.png">
+
+
+## Tech
+This project represents the concept of React, Redux, Redux Thunk and React Router. The project applies the concept of predictability which was discussed in last part the Nanodegree by improving the application’s state, establishs the rules for listening, getting, and updating the store, identifies which state should live inside of Redux and which state should live inside of React components
+
 
 To get started developing right away:
 
