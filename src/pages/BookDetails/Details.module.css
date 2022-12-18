@@ -1,0 +1,41 @@
+.main {
+    display: flex;
+    flex-wrap: wrap-reverse;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    height: 100vh;
+    background: #f857a6;
+    background: -webkit-linear-gradient(0deg, #f857a6 0%, #ff5858 100%);
+    background: linear-gradient(0deg, #f857a6 0%, #ff5858 100%);
+}
+
+.image {
+    position: relative;
+    flex-basis:50%;
+}
+
+.image img {
+    width: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.info {
+    padding: 20px;
+    flex-basis: 50%;
+}
+
+@media (max-width: 768px) {
+    .image {
+        flex-basis: 100%;
+    }
+        .image img {
+            width: 80%;
+        }
+    .info {
+    flex-basis: 100%;
+    }
+}

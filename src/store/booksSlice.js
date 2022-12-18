@@ -100,6 +100,7 @@ const initialState = {
   wantToRead: [],
   read: [],
   apiBooks: [],
+  bookInfo:{},
   loading: false,
 };
 export const booksSlice = createSlice({
@@ -121,6 +122,9 @@ export const booksSlice = createSlice({
     clear: (state) => {
       state.apiBooks = [];
     },
+    addBookInfo:(state,action)=>{
+     state.bookInfo =action.payload
+    }
   },  
   ///////////////////////ExtraReducers myBooks///////////////////////////////////
 
@@ -187,5 +191,5 @@ export const booksSlice = createSlice({
   },
 });
 
-export const { changeShelf, clear } = booksSlice.actions;
+export const { changeShelf, clear, addBookInfo } = booksSlice.actions;
 export default booksSlice.reducer;

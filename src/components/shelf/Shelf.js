@@ -18,7 +18,8 @@ const Shelf = ({ title, shelfNum }) => {
   const books = data.get(shelfNum);
 
   return (
-    <article>
+    <article 
+    >
       <div className={styles.title}>{title}</div>
       <section>   
         {loading ?

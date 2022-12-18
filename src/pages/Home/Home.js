@@ -4,7 +4,7 @@ import { useDispatch} from 'react-redux';
 import { MyBooks } from "../../store/booksSlice";
 import styles from './Home.module.css'
 import Header from "./Header";
-import Shelf from "../shelf/Shelf";
+import Shelf from "../../components/shelf/Shelf";
 
 const Home = () => {
   const navigate = useNavigate();

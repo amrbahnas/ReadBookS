@@ -1,6 +1,7 @@
 .book {
     width: 200px;
     height: 400px;
+    cursor: pointer;
 }
 
 .image {

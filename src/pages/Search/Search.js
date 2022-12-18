@@ -1,5 +1,5 @@
 import React, { useState, useEffect} from "react";
-import Book from "../Book/Book";
+import Book from "../../components/Book/Book";
 import { search, clear } from "../../store/booksSlice";
 import { useSelector, useDispatch } from "react-redux";
 import useDebounce from "./useDebounce";

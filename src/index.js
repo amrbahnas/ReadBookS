@@ -6,8 +6,9 @@ import './index.css';
 import App from './App/App';
 // import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Home from './components/Home/Home';
-import Search from './components/Search/Search';
+import Home from './pages/Home/Home';
+import Search from './pages/Search/Search'; 
+import BookDetails from './pages/BookDetails/BookDetails'
 const router = createBrowserRouter([
   {
     path: "/",
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
       {
         element: <Search />,
         path: "search",
+      },
+      {
+        element: <BookDetails />,
+        path: "book/:id",
       },
     ],
   },
