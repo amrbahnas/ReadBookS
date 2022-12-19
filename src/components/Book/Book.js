@@ -5,20 +5,27 @@ import styles from "./Book.module.css";
 import propTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import {addBookInfo} from "../../store/booksSlice"
+import { addBookInfo } from "../../store/booksSlice";
 const Book = ({ shelfNum, info }) => {
   //book info
   const { title, authors, imageLinks } = info;
   // go to details page
   const navigate = useNavigate();
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const navigteHandler = (info) => {
     dispatch(addBookInfo(info));
     navigate(`/book/${info.id}`);
   };
   /////////////////////////////Dom///////////////////////////////////
   return (
-    <motion.div className={styles.book} whileHover={{ y: -20 }}>
+    <motion.div
+      className={styles.book}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+      whileHover={{ y: -20 }}
+    >
       <div className={styles.image}>
         <img
           src={imageLinks.thumbnail}

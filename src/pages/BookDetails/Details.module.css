@@ -3,11 +3,11 @@
     flex-wrap: wrap-reverse;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 30px;
     min-height: 100vh;
-    background: #f857a6;
-    background: -webkit-linear-gradient(0deg, #f857a6 0%, #ff5858 100%);
-    background: linear-gradient(0deg, #f857a6 0%, #ff5858 100%);
+background: #2b2f77;
+    background: -webkit-linear-gradient(0deg, #2b2f77 0%, #141852 50%, #070b34 100%);
+    background: linear-gradient(0deg, #2b2f77 0%, #141852 50%, #070b34 100%);
 }
 
 .image {
@@ -15,6 +15,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 10px;
 }
 
 .image img {
@@ -22,7 +23,7 @@
 }
 
 .info {
-    padding: 20px;
+    color: white;
     flex-basis: 50%;
 }
 

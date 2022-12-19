@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import propTypes from "prop-types";
 
 import Book from "../Book/Book";
+import Loading from "../Loading/Loding"
 import styles from "./Shelf.module.css";
 const Shelf = ({ title, shelfNum }) => {
   const { currentlyReading, wantToRead, read,loading } = useSelector(
@@ -23,7 +24,7 @@ const Shelf = ({ title, shelfNum }) => {
       <div className={styles.title}>{title}</div>
       <section>   
         {loading ?
-          <div>Loading</div> :
+          <Loading/> :
             books.length > 0 ? (
           books.map((el) => <Book info={el}  key={el.id} />)
         ) : (

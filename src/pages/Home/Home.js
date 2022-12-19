@@ -1,18 +1,11 @@
-import {useEffect} from 'react'
 import { useNavigate } from "react-router-dom";
-import { useDispatch} from 'react-redux';
-import { MyBooks } from "../../store/booksSlice";
+import { motion } from "framer-motion";
 import styles from './Home.module.css'
 import Header from "./Header";
 import Shelf from "../../components/shelf/Shelf";
 
 const Home = () => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(MyBooks());
-  }, [dispatch]);
 
   ////////////////////////////// DOM /////////////////////////////////////////////////
   return (
@@ -23,9 +16,9 @@ const Home = () => {
         <Shelf title={"want to Read"} shelfNum={2} />
         <Shelf title={"Read"} shelfNum={3} />
       </div>
-      <div className={styles.add} onClick={() => navigate("search")}>
+      <motion.div className={styles.add} onClick={() => navigate("search")} whileHover={{scale:1.1}}>
         +
-      </div>
+      </motion.div>
     </div>
   );
 }

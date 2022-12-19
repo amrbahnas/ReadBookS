@@ -28,6 +28,7 @@ body {
   margin-right: auto;
 }
 
+
 @media (min-width:350px) {
   .container {
     width: 320px;

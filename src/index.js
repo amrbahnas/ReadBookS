@@ -9,11 +9,12 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from './pages/Home/Home';
 import Search from './pages/Search/Search'; 
 import BookDetails from './pages/BookDetails/BookDetails'
+import Error from './pages/Error/Error';
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-    errorElement: <div>error</div>,
+    errorElement: <Error/>,
     children: [
       {
         index: true,
